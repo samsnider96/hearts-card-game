@@ -1,0 +1,60 @@
+body{
+  background: green;
+}
+
+.North{
+  position : absolute;
+  width: 100%;
+  top : 0;
+  height : 100px;
+  margin-bottom : 20px;
+  margin-top : 20px;
+  background-color: grey;
+
+
+}
+.West{
+  position : absolute;
+  width: 35%;
+  left:0;
+  height: 240px;
+  margin-top: 180px;
+  background-color: grey;
+
+
+}
+.East{
+  position : absolute;
+  width: 35%;
+  right:0;
+  height: 240px;
+  margin-top: 180px;
+  background-color: grey;
+
+}
+.South{
+  position : absolute;
+  width: 100%;
+  bottom : 0;
+  height : 100px;
+  margin-top : 20px;
+  margin-bottom : 20px;
+  background-color: grey;
+
+}
+
+.card{
+  float: left;
+  background-color: white;
+  width: 40px;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/*  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);*/
+}
