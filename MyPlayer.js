@@ -31,8 +31,6 @@ var MyPlayer = function(name){
 //Creates variable which is the cards first passed to you
     var cards = current_game.getHand(player_key).getDealtCards(player_key);
 
-    // alert('1');
-    alert(current_game.getStatus());
 
     printEverythingLoop(cards);
 
@@ -41,6 +39,7 @@ var MyPlayer = function(name){
     if (e.getPassType() != Hearts.PASS_NONE) {    
 
 
+      alert('choose cards to pass.');
 //add the clicked cards to the array
       var chosenCards = [];
 
@@ -140,21 +139,22 @@ var MyPlayer = function(name){
         }
         });
       
-      // console.log(chosenCards);
+      // console.log(chosenCards);     
 
-
-
-      // $( document.getElementsByClassName('southCard') ).click(function() {
-      //   // console.log('success');
-      //   // console.log(cards[0]);
-      // });        
-
-//pass the cards
-      // current_game.passCards(chosenCards, player_key);
     }
 
-
   });
+
+
+
+
+
+
+
+
+
+
+
 
   current_game.registerEventHandler(Hearts.TRICK_START_EVENT, function (e ) {
     alert("made it to the start of the trick.");
@@ -163,22 +163,79 @@ var MyPlayer = function(name){
     var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
     printEverythingLoop(unplayedCards);
 
-//create a var which is the array of playable cards
-    var unplayedCards = current_game.getHand(player_key).getPlayableCards(player_key);
-//INDICATE THAT THESE CARDS ARE THE PLAYABLE ONES
+//TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
 
-
-//play the card
-    // current_game.playCard(chosenCard, player_key);
 
 //Logic to tell if myplayer is starting the trick, print that it's the user's turn.
-    if(current_game.getStartPos() == player_key){
+    if(e.getStartPos() == position){
       // console.log('yes');
       alert('its your turn!');
+
+
+        $( document.getElementById('southCard1') ).click(function() {
+//asign the clicked card to a temp variable
+          var chosenCard = cards[0];
+          console.log('FIRST CARD PLAYED');
+//play the card
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard2') ).click(function() {
+          var chosenCard = cards[1];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard3') ).click(function() {
+          var chosenCard = cards[2];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard4') ).click(function() {
+          var chosenCard = cards[3];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard5') ).click(function() {
+          var chosenCard = cards[4];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard6') ).click(function() {
+          var chosenCard = cards[5];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard7') ).click(function() {
+          var chosenCard = cards[6];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard8') ).click(function() {
+          var chosenCard = cards[7];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard9') ).click(function() {
+          var chosenCard = cards[8];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard10') ).click(function() {
+           var chosenCard = cards[9];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard11') ).click(function() {
+          var chosenCard = cards[10];
+          current_game.playCard(chosenCard, player_key);
+        });      
+        $( document.getElementById('southCard12') ).click(function() {
+          var chosenCard = cards[11];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard13') ).click(function() {
+          var chosenCard = cards[12];
+          current_game.playCard(chosenCard, player_key);
+        });
+
+//create a var which is the array of playable cards
+    // var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
+
+//play the card
+      // current_game.playCard(chosenCard, player_key);
     }
     else{
-      console.log('no');
-
+      alert('someone else is starting the game.');
     }
 
 // Use the getStartPos() method of the game event object in order to find out which player is expected to lead this trick. 
@@ -186,7 +243,99 @@ var MyPlayer = function(name){
 // Your player's position was originally reported back to you by the HeartsMatch object when it called your player object's setupMatch() method.
 });
 
+
+
+
+
+
+
+
+
+
+  current_game.registerEventHandler(Hearts.TRICK_CONTINUE_EVENT, function (e) {
+      if (e.getNextPos() == position) {
+
+        alert('It is now your turn.');
+
+        var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
+        printEverythingLoop(unplayedCards);
+        
+        var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
+//TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
+
+
+
+        $( document.getElementById('southCard1') ).click(function() {
+//asign the clicked card to a temp variable
+          var chosenCard = cards[0];
+          console.log('FIRST CARD PLAYED');
+//play the card
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard2') ).click(function() {
+          var chosenCard = unplayedCards[1];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard3') ).click(function() {
+          var chosenCard = unplayedCards[2];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard4') ).click(function() {
+          var chosenCard = unplayedCards[3];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard5') ).click(function() {
+          var chosenCard = unplayedCards[4];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard6') ).click(function() {
+          var chosenCard = unplayedCards[5];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard7') ).click(function() {
+          var chosenCard = unplayedCards[6];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard8') ).click(function() {
+          var chosenCard = unplayedCards[7];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard9') ).click(function() {
+          var chosenCard = unplayedCards[8];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard10') ).click(function() {
+           var chosenCard = unplayedCards[9];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard11') ).click(function() {
+          var chosenCard = unplayedCards[10];
+          current_game.playCard(chosenCard, player_key);
+        });      
+        $( document.getElementById('southCard12') ).click(function() {
+          var chosenCard = unplayedCards[11];
+          current_game.playCard(chosenCard, player_key);
+        });
+        $( document.getElementById('southCard13') ).click(function() {
+          var chosenCard = unplayedCards[12];
+          current_game.playCard(chosenCard, player_key);
+        });
+
+
+      }
+});
 //  ADD some stuff here to make sure all 4 people play, and that the myplayer expects a certain one
+
+
+
+
+
+
+
+
+
+
+
 
   current_game.registerEventHandler(Hearts.TRICK_COMPLETE_EVENT, function (e ) {
     alert("trick complete");
@@ -202,6 +351,25 @@ var MyPlayer = function(name){
 // a GAME_OVER_EVENT.
 
 //^^^^^^^I think it does this on its own.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *************************************** HELPER METHODS ***************************************
+
 
   printEverythingLoop = function(cards){
 
