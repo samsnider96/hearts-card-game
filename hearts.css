@@ -43,7 +43,7 @@ body{
 
 }
 
-.card{
+.eastCard{
   float: left;
   background-color: white;
   width: 40px;
@@ -52,6 +52,40 @@ body{
   margin-right: 10px;
   margin-top: 10px;
 }
+
+.northCard{
+  float: left;
+  background-color: white;
+  width: 40px;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.westCard{
+  float: left;
+  background-color: white;
+  width: 40px;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.southCard{
+  float: left;
+  background-color: white;
+  width: 40px;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/*.wrapper div:hover{
+  margin-bottom: 10px;
+}*/
 
 /*  display: grid;
   grid-template-columns: repeat(3, 1fr);

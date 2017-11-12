@@ -6,7 +6,7 @@ var MyPlayer = function(name){
   var player_key = null;
 
 
-  var visualCardObject = $("<div class = 'card'></div>");
+  var visualCardObject = $("<div class = 'southCard'></div>");
 
 
 
@@ -22,42 +22,104 @@ var MyPlayer = function(name){
   this.setupNextGame = function (game_of_hearts, pkey) {
     current_game = game_of_hearts;
     player_key = pkey;
+ 
+
+
 
   current_game.registerEventHandler(Hearts.GAME_STARTED_EVENT, function (e) {
 
-//Sets up a variable which holds all the cards    
+//Creates variable which is the cards first passed to you
     var cards = current_game.getHand(player_key).getDealtCards(player_key);
 
-    var thisCard = cards[0]
-//grabs the current div that I want to fill
-    var thisCardDiv = document.getElementsByClassName('card')[0] // get first DOM element of class 'card'
-//puts in the text
-    thisCardDiv.innerHTML = thisCard.getRank() + ' ' + thisCard.getSuit() // puts a text representation of card in DOM element
+    printEverythingLoop(cards);
 
 
-//UNSUCCESFUL TEST / useful copypassta**********************************************
-    // $(document).on("click", function(){
-      // visualCardObject.append("Appended text");
-      // });
+//if you have to pass at the beginning of the game
+    if (e.getPassType() != Hearts.PASS_NONE) {    
 
 
-    // alert("made it to the start of the game.");
-    //console.log()
-//UNSUCCESFUL TEST**********************************************
+//add the clicked cards to the array
+      var chosenCards = [];
 
-      
+      $( document.getElementById('southCard1') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard2') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard3') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard4') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard5') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard6') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard7') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard8') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard9') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard10') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard11') ).click(function() {
+        alert(cards[0].toString());
+      });      
+      $( document.getElementById('southCard12') ).click(function() {
+        alert(cards[0].toString());
+      });
+      $( document.getElementById('southCard13') ).click(function() {
+        alert(cards[0].toString());
+      });
 
-    if (e.getPassType() != Hearts.PASS_NONE) {
-      var cards = current_game.getHand(player_key).getDealtCards(player_key);
-    
 
-          // var chosenCards = [ADD TEXT HERE];
-        // current_game.passCards(chosenCards, MUST BE ARRAY OF 3 CARD OBJECTS, player_key);
+
+
+      $( document.getElementsByClassName('southCard') ).click(function() {
+        // console.log('success');
+        // console.log(cards[0]);
+      });        
+
+//pass the cards
+      // current_game.passCards(chosenCards, MUST BE ARRAY OF 3 CARD OBJECTS, player_key);
     }
+
+
   });
 
   current_game.registerEventHandler(Hearts.TRICK_START_EVENT, function (e ) {
     alert("made it to the start of the trick.");
+
+//create a var which is the current hand of unplayed cards
+    var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
+    printEverythingLoop(unplayedCards);
+
+//create a var which is the array of playable cards
+    var unplayedCards = current_game.getHand(player_key).getPlayableCards(player_key);
+//INDICATE THAT THESE CARDS ARE THE PLAYABLE ONES
+
+
+//play the card
+    current_game.playCard(chosenCard, player_key);
+
+//Logic to tell if myplayer is starting the trick, print that it's the user's turn.
+    if(current_game.getStartPos() == player_key){
+      // console.log('yes');
+      alert('its your turn!');
+    }
+    else{
+      console.log('no');
+
+    }
 
 // Use the getStartPos() method of the game event object in order to find out which player is expected to lead this trick. 
 // You can compare this value to your player's position in order to detect when your player is expected to play a card to lead the trick (see Passing and Playing Cards below for more). 
@@ -81,8 +143,24 @@ var MyPlayer = function(name){
 
 //^^^^^^^I think it does this on its own.
 
+  printEverythingLoop = function(cards){
 
 
+//PRINT THE CARDS TO THEIR DIVS LOOP
+    for (i = 0; i < 13; i++) { 
+
+    
+  // //Sets up a variable which holds all the cards    
+  //     var cards = current_game.getHand(player_key).getDealtCards(player_key);
+
+      var thisCard = cards[i]
+  //grabs the current div that I want to fill
+      var thisCardDiv = document.getElementsByClassName('southCard')[i] // get first DOM element of class 'card'
+  //puts in the text
+      thisCardDiv.innerHTML = thisCard.toString() // puts a text representation of card in DOM element
+
+    }
+  }
 
 
 

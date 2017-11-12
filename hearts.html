@@ -17,7 +17,7 @@
     <script type="text/javascript" src="HeartsMatch.js"></script>
 
 <!-- JS files I added-->    
-    <script type="text/javascript" src="HeartsGame.js"></script>
+    <script type="text/javascript" src="MainJSFile.js"></script>
     <script type="text/javascript" src="MyPlayer.js"></script>
 
 
@@ -28,106 +28,99 @@
  
     <div class="wrapper">
       <div class="North">
-        <div class = "card" id ="test"> 7%</div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
+        <div class = "northCard"></div>
 
       </div>
       <div class="West">
 
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
+        <div class = "westCard"></div>
       </div>
 
       <div class="East">
 
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
+        <div class = "eastCard"></div>
       </div>
 
       <div class="South">
 
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
-        <div class = "card"></div>
+        <div class = "southCard" id = "southCard1"></div>
+        <div class = "southCard" id = "southCard2"></div>
+        <div class = "southCard" id = "southCard3"></div>
+        <div class = "southCard" id = "southCard4"></div>
+        <div class = "southCard" id = "southCard5"></div>
+        <div class = "southCard" id = "southCard6"></div>
+        <div class = "southCard" id = "southCard7"></div>
+        <div class = "southCard" id = "southCard8"></div>
+        <div class = "southCard" id = "southCard9"></div>
+        <div class = "southCard" id = "southCard10"></div>
+        <div class = "southCard" id = "southCard11"></div>
+        <div class = "southCard" id = "southCard12"></div>
+        <div class = "southCard" id = "southCard13"></div>
       </div>
     </div>
 
 
   </body>
 
-  <script type="text/javascript">
-  //initiate 3 instances of the dumbAI
-  //initiate 1 instance of the MyPlayer
-  //Register these 4 players with a new HeartsMatch object
-  //run the match by calling the HeartsMatch object's run() method
+<!--   // //initiate 3 instances of the dumbAI
+  // //initiate 1 instance of the MyPlayer
+  // //Register these 4 players with a new HeartsMatch object
+  // //run the match by calling the HeartsMatch object's run() method
 
 
-    $(document).ready(function () {
-      var south = new MyPlayer("Sam");
-      var east = new DumbAI("AI1");
-      var north = new DumbAI("AI2");
-      var west = new DumbAI("AI3");
+  //   $(document).ready(function () {
+  //     var south = new MyPlayer("Sam");
+  //     var east = new DumbAI("AI1");
+  //     var north = new DumbAI("AI2");
+  //     var west = new DumbAI("AI3");
 
-      var match = new HeartsMatch(north, east, south, west);
+  //     var match = new HeartsMatch(north, east, south, west);
 
-      match.run();
+  //     match.run();
 
-      // document.getElementById("test").test.innerHTML = "New text!";
+  //     south.printEverythingLoop();
 
 
-    });
 
-//     window.onload = function(
+  //   });
 
-//     // test.innerHTML = "New text!";
-
-//     document.getElementById("div").innerHTML = "New text!";
-// );
-
-  </script>
+ -->
 
 
 
