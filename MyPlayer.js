@@ -1,3 +1,15 @@
+//To Do:
+
+//fix middle appearance
+    //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
+    //the next one so they're both listening for clicks.
+//Make sure user can only play playable clards.
+//Add visual indication of which cards you're able to play
+// --make it able to display less than 13 cards
+// --test the scoreboard
+
+
+
 var MyPlayer = function(name){
 
   var match = null;
@@ -34,21 +46,6 @@ var MyPlayer = function(name){
 
 //prints the player's cards
     printEverythingLoop(cards);
-
-
-//sets the scoreboard values
-    // scoreboardArray = e.getScoreboard(); 
-
-    console.log( current_game.getScore(Hearts.NORTH) )
-
-    var scoreBoardDiv = document.getElementsByClassName('northScore'); 
-    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.NORTH);
-    var scoreBoardDiv = document.getElementsByClassName('westScore'); 
-    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.WEST);
-    var scoreBoardDiv = document.getElementsByClassName('southScore'); 
-    scoreBoardDiv.innerHTML += current_game.getScore(player_key);
-    var scoreBoardDiv = document.getElementsByClassName('eastScore'); 
-    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.EAST); 
 
 
 
@@ -432,23 +429,45 @@ var MyPlayer = function(name){
 
 
 
+
+
+
+
+
+
   current_game.registerEventHandler(Hearts.TRICK_COMPLETE_EVENT, function (e ) {
     alert("trick complete");
+
+    var trick = e.getTrick() // get Trick object from event
+    var winner = trick.getWinner() // get Winner from Trick object
+    alert(winner + ' won the trick!') // log who won the trick in console
 
 // The getTrick() method of the trick complete game event object can be used 
 // to retrieve a Trick object that encapsulates all of the relevant information about the 
 // trick that was completed
 
-});
+  });
 
 // After each trick is complete, the sequence begins again with a TRICK_START_EVENT until 
 // all 13 tricks have been completed. After the 13th trick is completed, the game will generate 
 // a GAME_OVER_EVENT.
 
-//^^^^^^^I think it does this on its own.
 
+  current_game.registerEventHandler(Hearts.GAME_OVER_EVENT, function (e ) {
 
+    // scoreboardArray = e.getScoreboard(); 
 
+//sets the scoreboard values
+    var scoreBoardDiv = document.getElementsByClassName('northScore'); 
+    scoreBoardDiv.innerHTML = 'North: ' + e.getScore(Hearts.NORTH) + ' points.';
+    var scoreBoardDiv = document.getElementsByClassName('westScore'); 
+    scoreBoardDiv.innerHTML = 'West:: ' + e.getScore(Hearts.WEST) + ' points.';
+    var scoreBoardDiv = document.getElementsByClassName('southScore'); 
+    scoreBoardDiv.innerHTML = 'South: ' + e.getScore(player_key) + ' points.';
+    var scoreBoardDiv = document.getElementsByClassName('eastScore'); 
+    scoreBoardDiv.innerHTML = 'East: ' + e.getScore(Hearts.EAST) + ' points.'; 
+
+  });
 
 
 
