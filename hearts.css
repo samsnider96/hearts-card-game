@@ -45,7 +45,7 @@ body{
 
 .eastCard{
   float: left;
-  background-color: white;
+  background-color: darkred;
   width: 65px;
   height: 80px;
   margin-left: 10px;
@@ -55,7 +55,7 @@ body{
 
 .northCard{
   float: left;
-  background-color: white;
+  background-color: darkred;
   width: 65px;
   height: 80px;
   margin-left: 10px;
@@ -65,7 +65,7 @@ body{
 
 .westCard{
   float: left;
-  background-color: white;
+  background-color: darkred;
   width: 65px;
   height: 80px;
   margin-left: 10px;
@@ -98,12 +98,19 @@ body{
   padding: 300px;
   width: 650px;
   padding-left: 550px;
-  padding-top: 200px;
+  padding-top: 100px;
 /*  margin: 100px auto;
 */  
   text-align: center;
   text-decoration: none;
-  color:black;
+  color: black;
+}
+
+.scoreBoard{
+  color: white;
+  float:left;
+
+}
 
 /*.wrapper div:hover{
   margin-bottom: 10px;

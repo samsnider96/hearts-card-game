@@ -22,17 +22,32 @@ var MyPlayer = function(name){
   this.setupNextGame = function (game_of_hearts, pkey) {
     current_game = game_of_hearts;
     player_key = pkey;
- 
+
 
 
 
   current_game.registerEventHandler(Hearts.GAME_STARTED_EVENT, function (e) {
 
+
 //Creates variable which is the cards first passed to you
     var cards = current_game.getHand(player_key).getDealtCards(player_key);
 
-
+//prints the player's cards
     printEverythingLoop(cards);
+
+
+//sets the scoreboard values
+    // scoreboardArray = e.getScoreboard(); 
+
+    var scoreBoardDiv = document.getElementsByClassName('northScore'); 
+    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.NORTH);
+    var scoreBoardDiv = document.getElementsByClassName('westScore'); 
+    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.WEST);
+    var scoreBoardDiv = document.getElementsByClassName('southScore'); 
+    scoreBoardDiv.innerHTML += current_game.getScore(player_key);
+    var scoreBoardDiv = document.getElementsByClassName('eastScore'); 
+    scoreBoardDiv.innerHTML += current_game.getScore(Hearts.EAST); 
+
 
 
 //if you have to pass at the beginning of the game
@@ -50,91 +65,78 @@ var MyPlayer = function(name){
           chosenCards.push(cards[0]);
           // console.log('hello');
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard2') ).click(function() {
           chosenCards.push(cards[1]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard3') ).click(function() {
           chosenCards.push(cards[2]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard4') ).click(function() {
           chosenCards.push(cards[3]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard5') ).click(function() {
           chosenCards.push(cards[4]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard6') ).click(function() {
           chosenCards.push(cards[5]);
          if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard7') ).click(function() {
           chosenCards.push(cards[6]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard8') ).click(function() {
           chosenCards.push(cards[7]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard9') ).click(function() {
           chosenCards.push(cards[8]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard10') ).click(function() {
           chosenCards.push(cards[9]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
         $( document.getElementById('southCard11') ).click(function() {
           chosenCards.push(cards[10]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });      
         $( document.getElementById('southCard12') ).click(function() {
           chosenCards.push(cards[11]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         } 
         });
         $( document.getElementById('southCard13') ).click(function() {
           chosenCards.push(cards[12]);
         if(chosenCards.length == 3){
-          console.log('IT WORKS');
           current_game.passCards(chosenCards, player_key);
         }
         });
@@ -177,8 +179,10 @@ var MyPlayer = function(name){
           var chosenCard = unplayedCards[0];
 //play the card
           current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+//grabs the current div that I want to fill
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
+//puts in the text
+          thisCardDiv.innerHTML += chosenCard.toString(); 
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
@@ -307,7 +311,7 @@ var MyPlayer = function(name){
 
         $( document.getElementById('southCard1') ).click(function() {
 //asign the clicked card to a temp variable
-          var chosenCard = cards[0];
+          var chosenCard = unplayedCards[0];
 //play the card
           current_game.playCard(chosenCard, player_key);
 //grabs the current div that I want to fill
