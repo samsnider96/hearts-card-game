@@ -1,11 +1,33 @@
+//Bugs found;
+    //bad one - sometimes prints to middle box even when card isn't accepted, in later rounds
+    //possibly fixed - scoreboard is NOT working
+
+
+
 //To Do:
 
 // --fix middle appearance, it'slogging multiple ones on each part
         //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
         //the next one so they're both listening for clicks.
-// --make it able to display less than 13 cards
+
+
+//read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
+
+//make it more clear how to click / select the cards
+
+//check for bugs based on how the game works, etc
+
+//check that the cards are rendering correctly and carrying over through tricks correctly
+
 // --test the scoreboard
 
+//Optional:
+  //Clean up and consolidate
+      //lots of helper functions
+      //consolidate those 2 almost identicle huge blocks
+  //hover CSS
+  //playable CSS
+  //add favicon
 
 
 var MyPlayer = function(name){
@@ -14,10 +36,6 @@ var MyPlayer = function(name){
   var position = null;
   var current_game = null;
   var player_key = null;
-
-
-  var visualCardObject = $("<div class = 'southCard'></div>");
-
 
 
   this.setupMatch = function (hearts_match, pos) {
@@ -42,8 +60,9 @@ var MyPlayer = function(name){
 //Creates variable which is the cards first passed to you
     var cards = current_game.getHand(player_key).getDealtCards(player_key);
 
-//prints the player's cards
-    printEverythingLoop(cards);
+//display cards
+    printEverythingLoop(cards, cards.length);
+    deleteExtrasLoop(cards, cards.length);
 
 
 
@@ -51,16 +70,13 @@ var MyPlayer = function(name){
     if (e.getPassType() != Hearts.PASS_NONE) {    
 
 
-      alert('choose cards to pass.');
+      alert('choose 3 cards to pass.  Click on the card to chose it.');
 //add the clicked cards to the array
       var chosenCards = [];
 
 
-      // while( current_game.getStatus() == 1  ){
-
         $( document.getElementById('southCard1') ).click(function() {
           chosenCards.push(cards[0]);
-          // console.log('hello');
         if(chosenCards.length == 3){
           current_game.passCards(chosenCards, player_key);
         }
@@ -138,7 +154,6 @@ var MyPlayer = function(name){
         }
         });
       
-      // console.log(chosenCards);     
 
     }
 
@@ -160,21 +175,23 @@ var MyPlayer = function(name){
 
 //create a var which is the current hand of unplayed cards
     var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
-    printEverythingLoop(unplayedCards);
 
+//create a var which is the array of playable cards
     var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
-    console.log(playableCards)
-//TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
+
+//display cards
+    printEverythingLoop(unplayedCards, unplayedCards.length);
+    deleteExtrasLoop(unplayedCards, unplayedCards.length);
+
 
 
 //Logic to tell if myplayer is starting the trick
     if(e.getStartPos() == position){
-      // console.log('yes');
       alert('your starting the game, its your turn!');
 
 //Loop which labels cards as playable or not
     //TO DO:  Use CSS instead??
-      for (i = 0; i < 13; i++) { 
+      for (i = 0; i < unplayedCards.length; i++) { 
         if( playableCards.includes(unplayedCards[i]) ){
           var thisCardDiv = document.getElementsByClassName('southCard')[i];
           thisCardDiv.innerHTML += '<br>(playable)'
@@ -337,19 +354,29 @@ var MyPlayer = function(name){
 
 
   current_game.registerEventHandler(Hearts.TRICK_CONTINUE_EVENT, function (e) {
+
+//if it's south's turn
       if (e.getNextPos() == position) {
 
         alert('It is now your turn.');
 
+
+//create a var which is the current hand of unplayed cards
         var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
-        printEverythingLoop(unplayedCards);
-        
+
+//create a var which is the array of playable cards
         var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
+
+
+//display cards
+        printEverythingLoop(unplayedCards, unplayedCards.lenth);
+        deleteExtrasLoop(unplayedCards, unplayedCards.length);
 
 
 //Loop which labels cards as playable or not
     //TO DO:  Use CSS instead??
-        for (i = 0; i < 13; i++) { 
+
+        for (i = 0; i < unplayedCards.length; i++) { 
           if( playableCards.includes(unplayedCards[i]) ){
             var thisCardDiv = document.getElementsByClassName('southCard')[i];
             thisCardDiv.innerHTML += '<br>(playable)'
@@ -469,6 +496,9 @@ var MyPlayer = function(name){
 
 
       }
+
+
+      
     else{
 //this block displays the card that the DUMBAI plays.
 
@@ -543,13 +573,13 @@ var MyPlayer = function(name){
 
 //sets the scoreboard values
     var scoreBoardDiv = document.getElementsByClassName('northScore'); 
-    scoreBoardDiv.innerHTML = 'North: ' + e.getScore(Hearts.NORTH) + ' points.';
+    scoreBoardDiv.innerHTML = 'North: ' + current_game.getScore(Hearts.NORTH) + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('westScore'); 
-    scoreBoardDiv.innerHTML = 'West:: ' + e.getScore(Hearts.WEST) + ' points.';
+    scoreBoardDiv.innerHTML = 'West:: ' + current_game.getScore(Hearts.WEST) + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('southScore'); 
-    scoreBoardDiv.innerHTML = 'South: ' + e.getScore(player_key) + ' points.';
+    scoreBoardDiv.innerHTML = 'South: ' + current_game.getScore(player_key) + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('eastScore'); 
-    scoreBoardDiv.innerHTML = 'East: ' + e.getScore(Hearts.EAST) + ' points.'; 
+    scoreBoardDiv.innerHTML = 'East: ' + current_game.getScore(Hearts.EAST) + ' points.'; 
 
   });
 
@@ -569,11 +599,11 @@ var MyPlayer = function(name){
 // *************************************** HELPER METHODS ***************************************
 
 
-  printEverythingLoop = function(cards){
+  printEverythingLoop = function(cards, howMany){
 
 
 //PRINT THE CARDS TO THEIR DIVS LOOP
-    for (i = 0; i < 13; i++) { 
+    for (i = 0; i < howMany; i++) { 
 
     
   // //Sets up a variable which holds all the cards    
@@ -592,7 +622,14 @@ var MyPlayer = function(name){
 
 
 
-
+  deleteExtrasLoop = function(cards, howMany){
+    difference = 13 - howMany
+    for (i = 0; i < difference; i++) { 
+      var thisCard = cards[howMany + 1]
+      var thisCardDiv = document.getElementsByClassName('southCard')[i+howMany] // get first DOM element of class 'southCard'
+      thisCardDiv.innerHTML = "<span class='tempGrey'></span>" 
+    }
+  }
 
 
 
