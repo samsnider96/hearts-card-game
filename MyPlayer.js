@@ -4,6 +4,8 @@
     //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
     //the next one so they're both listening for clicks.
 //Make sure user can only play playable clards.
+    //Actually it turns out you can't play unplayable cards....but it still prints to the middle!
+    //do this with beginning of the game too
 //Add visual indication of which cards you're able to play
 // --make it able to display less than 13 cards
 // --test the scoreboard
@@ -164,6 +166,8 @@ var MyPlayer = function(name){
     var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
     printEverythingLoop(unplayedCards);
 
+    var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
+    console.log(playableCards)
 //TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
 
 
@@ -176,84 +180,110 @@ var MyPlayer = function(name){
         $( document.getElementById('southCard1') ).click(function() {
 //asign the clicked card to a temp variable
           var chosenCard = unplayedCards[0];
+          if(playableCards.includes(chosenCard)){
 //play the card
-          current_game.playCard(chosenCard, player_key);
+            current_game.playCard(chosenCard, player_key);
 //grabs the current div that I want to fill
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
 //puts in the text
-          thisCardDiv.innerHTML += chosenCard.toString(); 
+            thisCardDiv.innerHTML += chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard3') ).click(function() {
           var chosenCard = unplayedCards[2];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard4') ).click(function() {
           var chosenCard = unplayedCards[3];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard5') ).click(function() {
           var chosenCard = unplayedCards[4];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard6') ).click(function() {
           var chosenCard = unplayedCards[5];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard7') ).click(function() {
           var chosenCard = unplayedCards[6];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard8') ).click(function() {
           var chosenCard = unplayedCards[7];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard9') ).click(function() {
           var chosenCard = unplayedCards[8];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard10') ).click(function() {
            var chosenCard = unplayedCards[9];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard11') ).click(function() {
           var chosenCard = unplayedCards[10];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });      
         $( document.getElementById('southCard12') ).click(function() {
           var chosenCard = unplayedCards[11];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard13') ).click(function() {
           var chosenCard = unplayedCards[12];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          }
         });
 
 
@@ -313,86 +343,108 @@ var MyPlayer = function(name){
 
 
         $( document.getElementById('southCard1') ).click(function() {
-//asign the clicked card to a temp variable
           var chosenCard = unplayedCards[0];
-//play the card
-          current_game.playCard(chosenCard, player_key);
-//grabs the current div that I want to fill
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
-//puts in the text
-          thisCardDiv.innerHTML += chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2];
+            thisCardDiv.innerHTML += chosenCard.toString(); 
+          }
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString();
+          } 
         });
         $( document.getElementById('southCard3') ).click(function() {
           var chosenCard = unplayedCards[2];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard4') ).click(function() {
           var chosenCard = unplayedCards[3];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard5') ).click(function() {
           var chosenCard = unplayedCards[4];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard6') ).click(function() {
           var chosenCard = unplayedCards[5];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+           current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard7') ).click(function() {
           var chosenCard = unplayedCards[6];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard8') ).click(function() {
           var chosenCard = unplayedCards[7];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard9') ).click(function() {
           var chosenCard = unplayedCards[8];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard10') ).click(function() {
-           var chosenCard = unplayedCards[9];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          var chosenCard = unplayedCards[9];
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard11') ).click(function() {
           var chosenCard = unplayedCards[10];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });      
         $( document.getElementById('southCard12') ).click(function() {
           var chosenCard = unplayedCards[11];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+          }
         });
         $( document.getElementById('southCard13') ).click(function() {
           var chosenCard = unplayedCards[12];
-          current_game.playCard(chosenCard, player_key);
-          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();       
+          if(playableCards.includes(chosenCard)){
+            current_game.playCard(chosenCard, player_key);
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();       
+          }
         });
 
 
