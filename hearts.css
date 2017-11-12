@@ -46,7 +46,7 @@ body{
 .eastCard{
   float: left;
   background-color: white;
-  width: 40px;
+  width: 65px;
   height: 80px;
   margin-left: 10px;
   margin-right: 10px;
@@ -56,7 +56,7 @@ body{
 .northCard{
   float: left;
   background-color: white;
-  width: 40px;
+  width: 65px;
   height: 80px;
   margin-left: 10px;
   margin-right: 10px;
@@ -66,7 +66,7 @@ body{
 .westCard{
   float: left;
   background-color: white;
-  width: 40px;
+  width: 65px;
   height: 80px;
   margin-left: 10px;
   margin-right: 10px;
@@ -76,12 +76,34 @@ body{
 .southCard{
   float: left;
   background-color: white;
-  width: 40px;
+  width: 65px;
   height: 80px;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
 }
+
+.middleCard{
+  float: left;
+  background-color: white;
+  width: 75px;
+  height: 90px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.box{
+  background-color: rgba(0,0,0,0.5);
+  padding: 300px;
+  width: 650px;
+  padding-left: 550px;
+  padding-top: 200px;
+/*  margin: 100px auto;
+*/  
+  text-align: center;
+  text-decoration: none;
+  color:black;
 
 /*.wrapper div:hover{
   margin-bottom: 10px;
