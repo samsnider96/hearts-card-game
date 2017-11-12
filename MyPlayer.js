@@ -1,6 +1,6 @@
 //Bugs found;
     //bad one - sometimes prints to middle box even when card isn't accepted, in later rounds
-    //possibly fixed - scoreboard is NOT working
+    //bad one - scoreboard is NOT working
 
 
 
@@ -8,6 +8,8 @@
 
 
 //read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
+
+//fix appearance of already-played cards
 
 //make it more clear how to click / select the cards
 
@@ -206,7 +208,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);   //play the card
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'...grabs the current div that I want to fill
-            thisCardDiv.innerHTML += chosenCard.toString();       //puts in the text
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();       //puts in the text
           }
         });
         $( document.getElementById('southCard2') ).click(function() {
@@ -214,7 +216,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard3') ).click(function() {
@@ -222,7 +224,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard4') ).click(function() {
@@ -230,7 +232,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard5') ).click(function() {
@@ -238,7 +240,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard6') ).click(function() {
@@ -246,7 +248,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard7') ).click(function() {
@@ -254,7 +256,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard8') ).click(function() {
@@ -262,7 +264,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard9') ).click(function() {
@@ -270,7 +272,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard10') ).click(function() {
@@ -278,7 +280,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard11') ).click(function() {
@@ -286,7 +288,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });      
         $( document.getElementById('southCard12') ).click(function() {
@@ -294,7 +296,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
         $( document.getElementById('southCard13') ).click(function() {
@@ -302,7 +304,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
           }
         });
 
@@ -402,7 +404,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2];
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard2') ).click(function() {
@@ -410,7 +412,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML += '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           } 
         });
         $( document.getElementById('southCard3') ).click(function() {
@@ -418,7 +420,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard4') ).click(function() {
@@ -426,7 +428,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard5') ).click(function() {
@@ -434,7 +436,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard6') ).click(function() {
@@ -442,7 +444,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
            current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard7') ).click(function() {
@@ -450,7 +452,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard8') ).click(function() {
@@ -458,7 +460,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard9') ).click(function() {
@@ -466,7 +468,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard10') ).click(function() {
@@ -474,7 +476,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard11') ).click(function() {
@@ -482,7 +484,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });      
         $( document.getElementById('southCard12') ).click(function() {
@@ -490,7 +492,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard13') ).click(function() {
@@ -498,7 +500,7 @@ var MyPlayer = function(name){
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
-            thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();       
+            thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();       
           }
         });
 
@@ -570,7 +572,6 @@ var MyPlayer = function(name){
 
 
   current_game.registerEventHandler(Hearts.TRICK_COMPLETE_EVENT, function (e ) {
-    alert("trick complete");
 
 //clear the middle boxes
     var westCardDiv = document.getElementsByClassName('middleCard')[0]; 
