@@ -169,63 +169,88 @@ var MyPlayer = function(name){
 //Logic to tell if myplayer is starting the trick, print that it's the user's turn.
     if(e.getStartPos() == position){
       // console.log('yes');
-      alert('its your turn!');
+      alert('your starting the game, its your turn!');
 
 
         $( document.getElementById('southCard1') ).click(function() {
 //asign the clicked card to a temp variable
-          var chosenCard = cards[0];
-          console.log('FIRST CARD PLAYED');
+          var chosenCard = unplayedCards[0];
 //play the card
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard2') ).click(function() {
-          var chosenCard = cards[1];
+          var chosenCard = unplayedCards[1];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard3') ).click(function() {
-          var chosenCard = cards[2];
+          var chosenCard = unplayedCards[2];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard4') ).click(function() {
-          var chosenCard = cards[3];
+          var chosenCard = unplayedCards[3];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard5') ).click(function() {
-          var chosenCard = cards[4];
+          var chosenCard = unplayedCards[4];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard6') ).click(function() {
-          var chosenCard = cards[5];
+          var chosenCard = unplayedCards[5];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard7') ).click(function() {
-          var chosenCard = cards[6];
+          var chosenCard = unplayedCards[6];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard8') ).click(function() {
-          var chosenCard = cards[7];
+          var chosenCard = unplayedCards[7];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard9') ).click(function() {
-          var chosenCard = cards[8];
+          var chosenCard = unplayedCards[8];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard10') ).click(function() {
-           var chosenCard = cards[9];
+           var chosenCard = unplayedCards[9];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard11') ).click(function() {
-          var chosenCard = cards[10];
+          var chosenCard = unplayedCards[10];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });      
         $( document.getElementById('southCard12') ).click(function() {
-          var chosenCard = cards[11];
+          var chosenCard = unplayedCards[11];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard13') ).click(function() {
-          var chosenCard = cards[12];
+          var chosenCard = unplayedCards[12];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
 
 //create a var which is the array of playable cards
@@ -236,6 +261,21 @@ var MyPlayer = function(name){
     }
     else{
       alert('someone else is starting the game.');
+
+      if(e.getStartPos() == 'north'){
+  //grabs the current div that I want to fill
+      var thisCardDiv = document.getElementsByClassName('middleCard')[0]; // get first DOM element of class 'middleCard'
+  //puts in the text
+      thisCardDiv.innerHTML = e.getCard().toString(); 
+      }
+      if(e.getStartPos() == 'west'){
+      var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
+      thisCardDiv.innerHTML = e.getCard().toString();     
+      }
+      if(e.getStartPos() == 'east'){
+      var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
+      thisCardDiv.innerHTML = e.getCard().toString();      
+      }
     }
 
 // Use the getStartPos() method of the game event object in order to find out which player is expected to lead this trick. 
@@ -268,57 +308,84 @@ var MyPlayer = function(name){
         $( document.getElementById('southCard1') ).click(function() {
 //asign the clicked card to a temp variable
           var chosenCard = cards[0];
-          console.log('FIRST CARD PLAYED');
 //play the card
           current_game.playCard(chosenCard, player_key);
+//grabs the current div that I want to fill
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
+//puts in the text
+          thisCardDiv.innerHTML += chosenCard.toString(); 
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
         $( document.getElementById('southCard3') ).click(function() {
           var chosenCard = unplayedCards[2];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard4') ).click(function() {
           var chosenCard = unplayedCards[3];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard5') ).click(function() {
           var chosenCard = unplayedCards[4];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard6') ).click(function() {
           var chosenCard = unplayedCards[5];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard7') ).click(function() {
           var chosenCard = unplayedCards[6];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard8') ).click(function() {
           var chosenCard = unplayedCards[7];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard9') ).click(function() {
           var chosenCard = unplayedCards[8];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard10') ).click(function() {
            var chosenCard = unplayedCards[9];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard11') ).click(function() {
           var chosenCard = unplayedCards[10];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });      
         $( document.getElementById('southCard12') ).click(function() {
           var chosenCard = unplayedCards[11];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();
         });
         $( document.getElementById('southCard13') ).click(function() {
           var chosenCard = unplayedCards[12];
           current_game.playCard(chosenCard, player_key);
+          var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
+          thisCardDiv.innerHTML +=  '<br>' + chosenCard.toString();       
         });
 
 
@@ -383,9 +450,9 @@ var MyPlayer = function(name){
 
       var thisCard = cards[i]
   //grabs the current div that I want to fill
-      var thisCardDiv = document.getElementsByClassName('southCard')[i] // get first DOM element of class 'card'
+      var thisCardDiv = document.getElementsByClassName('southCard')[i] // get first DOM element of class 'southCard'
   //puts in the text
-      thisCardDiv.innerHTML = thisCard.toString() // puts a text representation of card in DOM element
+      thisCardDiv.innerHTML = thisCard.toString() 
 
     }
   }
