@@ -197,11 +197,13 @@ var GameOfHearts = function (pass, options) {
     });
       }
 
+    setTimeout(function() {
       dispatching = false;
       if (dispatch_queue.length > 0) {
-    var next_to_dispatch = (dispatch_queue.splice(0, 1))[0];
-    dispatchEvent(next_to_dispatch);
+        var next_to_dispatch = (dispatch_queue.splice(0,1))[0];
+        dispatchEvent(next_to_dispatch);
       }
+    }, 2000);
   }
     }
 

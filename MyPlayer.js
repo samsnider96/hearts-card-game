@@ -31,6 +31,9 @@ var MyPlayer = function(name){
 //Creates variable which is the cards first passed to you
     var cards = current_game.getHand(player_key).getDealtCards(player_key);
 
+    // alert('1');
+    alert(current_game.getStatus());
+
     printEverythingLoop(cards);
 
 
@@ -41,56 +44,113 @@ var MyPlayer = function(name){
 //add the clicked cards to the array
       var chosenCards = [];
 
-      $( document.getElementById('southCard1') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard2') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard3') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard4') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard5') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard6') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard7') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard8') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard9') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard10') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard11') ).click(function() {
-        alert(cards[0].toString());
-      });      
-      $( document.getElementById('southCard12') ).click(function() {
-        alert(cards[0].toString());
-      });
-      $( document.getElementById('southCard13') ).click(function() {
-        alert(cards[0].toString());
-      });
+
+      // while( current_game.getStatus() == 1  ){
+
+        $( document.getElementById('southCard1') ).click(function() {
+          chosenCards.push(cards[0]);
+          // console.log('hello');
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard2') ).click(function() {
+          chosenCards.push(cards[1]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard3') ).click(function() {
+          chosenCards.push(cards[2]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard4') ).click(function() {
+          chosenCards.push(cards[3]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard5') ).click(function() {
+          chosenCards.push(cards[4]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard6') ).click(function() {
+          chosenCards.push(cards[5]);
+         if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard7') ).click(function() {
+          chosenCards.push(cards[6]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard8') ).click(function() {
+          chosenCards.push(cards[7]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard9') ).click(function() {
+          chosenCards.push(cards[8]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard10') ).click(function() {
+          chosenCards.push(cards[9]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+        $( document.getElementById('southCard11') ).click(function() {
+          chosenCards.push(cards[10]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });      
+        $( document.getElementById('southCard12') ).click(function() {
+          chosenCards.push(cards[11]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        } 
+        });
+        $( document.getElementById('southCard13') ).click(function() {
+          chosenCards.push(cards[12]);
+        if(chosenCards.length == 3){
+          console.log('IT WORKS');
+          current_game.passCards(chosenCards, player_key);
+        }
+        });
+      
+      // console.log(chosenCards);
 
 
 
-
-      $( document.getElementsByClassName('southCard') ).click(function() {
-        // console.log('success');
-        // console.log(cards[0]);
-      });        
+      // $( document.getElementsByClassName('southCard') ).click(function() {
+      //   // console.log('success');
+      //   // console.log(cards[0]);
+      // });        
 
 //pass the cards
-      // current_game.passCards(chosenCards, MUST BE ARRAY OF 3 CARD OBJECTS, player_key);
+      // current_game.passCards(chosenCards, player_key);
     }
 
 
@@ -109,7 +169,7 @@ var MyPlayer = function(name){
 
 
 //play the card
-    current_game.playCard(chosenCard, player_key);
+    // current_game.playCard(chosenCard, player_key);
 
 //Logic to tell if myplayer is starting the trick, print that it's the user's turn.
     if(current_game.getStartPos() == player_key){
