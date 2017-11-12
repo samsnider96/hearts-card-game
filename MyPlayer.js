@@ -6,10 +6,6 @@
 
 //To Do:
 
-// --fix middle appearance, it'slogging multiple ones on each part
-        //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
-        //the next one so they're both listening for clicks.
-
 
 //read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
 
@@ -313,27 +309,39 @@ var MyPlayer = function(name){
 
 
     }
+
+
 //this block displays the card that the DUMBAI plays.
     else{
 
       alert('someone else is starting the game.');
-
+          
 
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
 
-        if(e.getStartPos() == Hearts.WEST){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
+
+        if(f.getPosition() == Hearts.WEST){
+
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+
+            var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
+            thisCardDiv.innerHTML = 'WEST PLAYED:' + '<br>' + f.getCard().toString(); 
+          // });
         }
-        if(e.getStartPos() == Hearts.NORTH){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
+        else if(f.getPosition() == Hearts.NORTH){
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+
+            var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
+            thisCardDiv.innerHTML = 'NORTH PLAYED:' + '<br>' + f.getCard().toString(); 
+          // });
         }
-        if(e.getStartPos() == Hearts.EAST){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();      
+        else if(f.getPosition() == Hearts.EAST){
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+            var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
+            thisCardDiv.innerHTML = 'EAST PLAYED:' + '<br>' + f.getCard().toString(); 
+          // });
         }
-      });
+    });
     }
 });
 
@@ -498,29 +506,52 @@ var MyPlayer = function(name){
       }
 
 
-      
+
     else{
 //this block displays the card that the DUMBAI plays.
 
+//The problem is because you say "f.getCard" on every one, I think
+
+//uSE getPosition() from the card played event!!!!
+
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
 
-        if(e.getNextPos() == Hearts.WEST){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
+        if(f.getPosition() == Hearts.WEST){
+          console.log("ONE");
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+
+            var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
+            thisCardDiv.innerHTML = 'WEST PLAYED:' + '<br>' + f.getCard().toString(); 
+          // });
         }
-        if(e.getNextPos() == Hearts.NORTH){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
+        else if(f.getPosition() == Hearts.NORTH){
+          console.log("TWO");
+
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+
+            var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
+            thisCardDiv.innerHTML = 'NORTH PLAYED:' + '<br>' + f.getCard().toString();           
+          // });
+
         }
-        if(e.getNextPos() == Hearts.EAST){
-        var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
-        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();      
+        else if(f.getPosition() == Hearts.EAST){
+                    console.log("THREE");
+
+          // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
+
+            var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
+            thisCardDiv.innerHTML = 'EAST PLAYED:' + '<br>' + f.getCard().toString(); 
+        
+          // });
         }
       });
     }
-});
-//  ADD some stuff here to make sure all 4 people play, and that the myplayer expects a certain one
+ });
 
+
+
+
+//  ADD some stuff here to make sure all 4 people play(????)
 
 
 
