@@ -39,6 +39,8 @@ var MyPlayer = function(name){
 //sets the scoreboard values
     // scoreboardArray = e.getScoreboard(); 
 
+    console.log( current_game.getScore(Hearts.NORTH) )
+
     var scoreBoardDiv = document.getElementsByClassName('northScore'); 
     scoreBoardDiv.innerHTML += current_game.getScore(Hearts.NORTH);
     var scoreBoardDiv = document.getElementsByClassName('westScore'); 
@@ -257,35 +259,39 @@ var MyPlayer = function(name){
           thisCardDiv.innerHTML += '<br>' + chosenCard.toString(); 
         });
 
-//create a var which is the array of playable cards
-    // var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
 
-//play the card
-      // current_game.playCard(chosenCard, player_key);
+
     }
+//this block displays the card the DUMBAI plays.
     else{
+
       alert('someone else is starting the game.');
 
-      if(e.getStartPos() == 'north'){
-  //grabs the current div that I want to fill
-      var thisCardDiv = document.getElementsByClassName('middleCard')[0]; // get first DOM element of class 'middleCard'
-  //puts in the text
-      thisCardDiv.innerHTML = e.getCard().toString(); 
-      }
-      if(e.getStartPos() == 'west'){
-      var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
-      thisCardDiv.innerHTML = e.getCard().toString();     
-      }
-      if(e.getStartPos() == 'east'){
-      var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
-      thisCardDiv.innerHTML = e.getCard().toString();      
-      }
-    }
 
-// Use the getStartPos() method of the game event object in order to find out which player is expected to lead this trick. 
-// You can compare this value to your player's position in order to detect when your player is expected to play a card to lead the trick (see Passing and Playing Cards below for more). 
-// Your player's position was originally reported back to you by the HeartsMatch object when it called your player object's setupMatch() method.
+      current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
+
+        if(e.getStartPos() == Hearts.NORTH){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
+        }
+        if(e.getStartPos() == Hearts.WEST){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
+        }
+        if(e.getStartPos() == Hearts.EAST){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();      
+        }
+      });
+    }
 });
+
+
+
+
+
+
+
 
 
 
@@ -394,6 +400,24 @@ var MyPlayer = function(name){
 
 
       }
+    else{
+
+      current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
+
+        if(e.getNextPos() == Hearts.NORTH){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
+        }
+        if(e.getNextPos() == Hearts.WEST){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
+        }
+        if(e.getNextPos() == Hearts.EAST){
+        var thisCardDiv = document.getElementsByClassName('middleCard')[3]; 
+        thisCardDiv.innerHTML += '<br>' + f.getCard().toString();      
+        }
+      });
+    }
 });
 //  ADD some stuff here to make sure all 4 people play, and that the myplayer expects a certain one
 
