@@ -1,12 +1,8 @@
 //To Do:
 
-//fix middle appearance
-    //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
-    //the next one so they're both listening for clicks.
-//Make sure user can only play playable clards.
-    //Actually it turns out you can't play unplayable cards....but it still prints to the middle!
-    //do this with beginning of the game too
-//Add visual indication of which cards you're able to play
+// --fix middle appearance, it'slogging multiple ones on each part
+        //think its an issue with game state / not closing listeners.  IE, the start trick thing is still running during
+        //the next one so they're both listening for clicks.
 // --make it able to display less than 13 cards
 // --test the scoreboard
 
@@ -171,22 +167,33 @@ var MyPlayer = function(name){
 //TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
 
 
-//Logic to tell if myplayer is starting the trick, print that it's the user's turn.
+//Logic to tell if myplayer is starting the trick
     if(e.getStartPos() == position){
       // console.log('yes');
       alert('your starting the game, its your turn!');
 
+//Loop which labels cards as playable or not
+    //TO DO:  Use CSS instead??
+      for (i = 0; i < 13; i++) { 
+        if( playableCards.includes(unplayedCards[i]) ){
+          var thisCardDiv = document.getElementsByClassName('southCard')[i];
+          thisCardDiv.innerHTML += '<br>(playable)'
+        }
+        else if( playableCards.includes(unplayedCards[i]) == false ){
+          var thisCardDiv = document.getElementsByClassName('southCard')[i];
+          thisCardDiv.innerHTML += '<br>(NOT<br>playable)'
+        }
+      }  
 
+
+
+//Event listeners for all 13 cards.  Listen for click, then play the card.
         $( document.getElementById('southCard1') ).click(function() {
-//asign the clicked card to a temp variable
-          var chosenCard = unplayedCards[0];
+          var chosenCard = unplayedCards[0];     //asign the clicked card to a temp variable
           if(playableCards.includes(chosenCard)){
-//play the card
-            current_game.playCard(chosenCard, player_key);
-//grabs the current div that I want to fill
-            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'
-//puts in the text
-            thisCardDiv.innerHTML += chosenCard.toString(); 
+            current_game.playCard(chosenCard, player_key);   //play the card
+            var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'...grabs the current div that I want to fill
+            thisCardDiv.innerHTML += chosenCard.toString();       //puts in the text
           }
         });
         $( document.getElementById('southCard2') ).click(function() {
@@ -289,7 +296,7 @@ var MyPlayer = function(name){
 
 
     }
-//this block displays the card the DUMBAI plays.
+//this block displays the card that the DUMBAI plays.
     else{
 
       alert('someone else is starting the game.');
@@ -297,11 +304,11 @@ var MyPlayer = function(name){
 
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
 
-        if(e.getStartPos() == Hearts.NORTH){
+        if(e.getStartPos() == Hearts.WEST){
         var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
         thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
         }
-        if(e.getStartPos() == Hearts.WEST){
+        if(e.getStartPos() == Hearts.NORTH){
         var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
         thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
         }
@@ -338,16 +345,29 @@ var MyPlayer = function(name){
         printEverythingLoop(unplayedCards);
         
         var playableCards = current_game.getHand(player_key).getPlayableCards(player_key);
-//TO DO:  INDICATE with CSS THAT THESE CARDS ARE THE PLAYABLE ONES
 
 
+//Loop which labels cards as playable or not
+    //TO DO:  Use CSS instead??
+        for (i = 0; i < 13; i++) { 
+          if( playableCards.includes(unplayedCards[i]) ){
+            var thisCardDiv = document.getElementsByClassName('southCard')[i];
+            thisCardDiv.innerHTML += '<br>(playable)'
+          }
+          else if( playableCards.includes(unplayedCards[i]) == false ){
+            var thisCardDiv = document.getElementsByClassName('southCard')[i];
+            thisCardDiv.innerHTML += '<br>(NOT<br>playable)'
+          }
+        }  
 
+
+//Event listeners for all 13 cards.  Listen for click, then play the card.
         $( document.getElementById('southCard1') ).click(function() {
           var chosenCard = unplayedCards[0];
           if(playableCards.includes(chosenCard)){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2];
-            thisCardDiv.innerHTML += chosenCard.toString(); 
+            thisCardDiv.innerHTML += '<br>' + chosenCard.toString();
           }
         });
         $( document.getElementById('southCard2') ).click(function() {
@@ -450,14 +470,15 @@ var MyPlayer = function(name){
 
       }
     else{
+//this block displays the card that the DUMBAI plays.
 
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
 
-        if(e.getNextPos() == Hearts.NORTH){
+        if(e.getNextPos() == Hearts.WEST){
         var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
         thisCardDiv.innerHTML += '<br>' + f.getCard().toString(); 
         }
-        if(e.getNextPos() == Hearts.WEST){
+        if(e.getNextPos() == Hearts.NORTH){
         var thisCardDiv = document.getElementsByClassName('middleCard')[1]; 
         thisCardDiv.innerHTML += '<br>' + f.getCard().toString();     
         }
@@ -489,6 +510,17 @@ var MyPlayer = function(name){
 
   current_game.registerEventHandler(Hearts.TRICK_COMPLETE_EVENT, function (e ) {
     alert("trick complete");
+
+//clear the middle boxes
+    var westCardDiv = document.getElementsByClassName('middleCard')[0]; 
+    westCardDiv.innerHTML = "WEST PLAYED:"; 
+    var northCardDiv = document.getElementsByClassName('middleCard')[1]; 
+    northCardDiv.innerHTML = "NORTH PLAYED:"; 
+    var eastCardDiv = document.getElementsByClassName('middleCard')[3]; 
+    eastCardDiv.innerHTML = "EAST PLAYED:"; 
+    var southCardDiv = document.getElementsByClassName('middleCard')[2]; 
+    southCardDiv.innerHTML = "SOUTH PLAYED:"; 
+
 
     var trick = e.getTrick() // get Trick object from event
     var winner = trick.getWinner() // get Winner from Trick object
