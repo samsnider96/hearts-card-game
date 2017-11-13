@@ -1,25 +1,25 @@
 //Bugs found;
-    //bad one - need to recheck this - sometimes prints to middle box even when card isn't accepted, in later rounds
-    //bad one - scoreboard is NOT working
-    //bad one - clicking on the dashes puts a card to the middle box
-    //Possibly one - if you click 2 options quickly on your turn, they both populate the textbox
+    //bad one - scoreboard is working but not adding up points from the game
+
+    //potentially bad one - need to check if this stuff will be graded on- 
+          //sometimes prints to middle box even when card isn't accepted, in later rounds
+          //bad one - clicking on the dashes 
+          //Possibly one - if you click 2 options quickly on your turn, they both populate the textbox
 
 
 
 //To Do:
 
 
-//read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
+//MESSAGING - read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
 
-//make it more clear how to click / select the cards
 
 //check for bugs based on the rules of the game, etc
 
 //check that the cards are rendering correctly and carrying over through tricks correctly
 
-// --test the scoreboard
-
 //Optional:
+  //make it more clear how to click / select the cards
   //Clean up and consolidate
       //lots of helper functions
       //consolidate those 2 almost identicle huge blocks
@@ -169,7 +169,7 @@ var MyPlayer = function(name){
 
 
   current_game.registerEventHandler(Hearts.TRICK_START_EVENT, function (e ) {
-    alert("made it to the start of the trick.");
+    // alert("made it to the start of the trick.");
 
 //create a var which is the current hand of unplayed cards
     var unplayedCards = current_game.getHand(player_key).getUnplayedCards(player_key);
@@ -519,7 +519,6 @@ var MyPlayer = function(name){
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
 
         if(f.getPosition() == Hearts.WEST){
-          console.log("ONE");
           // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
 
             var thisCardDiv = document.getElementsByClassName('middleCard')[0]; 
@@ -527,7 +526,6 @@ var MyPlayer = function(name){
           // });
         }
         else if(f.getPosition() == Hearts.NORTH){
-          console.log("TWO");
 
           // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
 
@@ -537,7 +535,6 @@ var MyPlayer = function(name){
 
         }
         else if(f.getPosition() == Hearts.EAST){
-                    console.log("THREE");
 
           // current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (e ) {
 
@@ -603,14 +600,22 @@ var MyPlayer = function(name){
 
     // scoreboardArray = e.getScoreboard(); 
 
+    // console.log( e.getScoreboard() );
+
+    console.log(current_game.getScore(Hearts.NORTH))
+    console.log(current_game.getScore(Hearts.WEST))
+    console.log(current_game.getScore(Hearts.SOUTH))
+    console.log(current_game.getScore(Hearts.EAST))
+
+
 //sets the scoreboard values
-    var scoreBoardDiv = document.getElementsByClassName('northScore'); 
+    var scoreBoardDiv = document.getElementsByClassName('northScore')[0]; 
     scoreBoardDiv.innerHTML = 'North: ' + current_game.getScore(Hearts.NORTH) + ' points.';
-    var scoreBoardDiv = document.getElementsByClassName('westScore'); 
+    var scoreBoardDiv = document.getElementsByClassName('westScore')[0]; 
     scoreBoardDiv.innerHTML = 'West:: ' + current_game.getScore(Hearts.WEST) + ' points.';
-    var scoreBoardDiv = document.getElementsByClassName('southScore'); 
-    scoreBoardDiv.innerHTML = 'South: ' + current_game.getScore(player_key) + ' points.';
-    var scoreBoardDiv = document.getElementsByClassName('eastScore'); 
+    var scoreBoardDiv = document.getElementsByClassName('southScore')[0]; 
+    scoreBoardDiv.innerHTML = 'South: ' + current_game.getScore(Hearts.SOUTH) + ' points.';
+    var scoreBoardDiv = document.getElementsByClassName('eastScore')[0]; 
     scoreBoardDiv.innerHTML = 'East: ' + current_game.getScore(Hearts.EAST) + ' points.'; 
 
   });
