@@ -1,6 +1,8 @@
 //Bugs found;
-    //bad one - sometimes prints to middle box even when card isn't accepted, in later rounds
+    //bad one - need to recheck this - sometimes prints to middle box even when card isn't accepted, in later rounds
     //bad one - scoreboard is NOT working
+    //bad one - clicking on the dashes puts a card to the middle box
+    //Possibly one - if you click 2 options quickly on your turn, they both populate the textbox
 
 
 
@@ -9,11 +11,9 @@
 
 //read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
 
-//fix appearance of already-played cards
-
 //make it more clear how to click / select the cards
 
-//check for bugs based on how the game works, etc
+//check for bugs based on the rules of the game, etc
 
 //check that the cards are rendering correctly and carrying over through tricks correctly
 
@@ -316,7 +316,7 @@ var MyPlayer = function(name){
 //this block displays the card that the DUMBAI plays.
     else{
 
-      alert('someone else is starting the game.');
+      // alert('someone else is starting the game.');
           
 
       current_game.registerEventHandler(Hearts.CARD_PLAYED_EVENT, function (f ) {
@@ -659,7 +659,7 @@ var MyPlayer = function(name){
     for (i = 0; i < difference; i++) { 
       var thisCard = cards[howMany + 1]
       var thisCardDiv = document.getElementsByClassName('southCard')[i+howMany] // get first DOM element of class 'southCard'
-      thisCardDiv.innerHTML = "<span class='tempGrey'></span>" 
+      thisCardDiv.innerHTML = "<span class='tempGrey'>////////////////////<br>////////////////////<br>//////(already<br>played)//////////<br>////////////////////<br></span>" 
     }
   }
 

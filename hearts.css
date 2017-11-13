@@ -38,7 +38,7 @@ body{
   bottom : 0;
   height : 100px;
   margin-top : 20px;
-  margin-bottom : 20px;
+  margin-bottom : 10px;
   background-color: grey;
 
 }
@@ -96,7 +96,7 @@ body{
 .box{
   background-color: rgba(0,0,0,0.5);
   padding: 300px;
-  width: 650px;
+  width: 450px;
   padding-left: 550px;
   padding-top: 100px;
 /*  margin: 100px auto;
@@ -117,11 +117,17 @@ body{
 }*/
 
 .South div:hover{
-  margin-bottom: 20px;
+  padding: 5px;
 }
 
 .tempGrey{
-  background-color: grey
+  overflow: hidden;
+
+  background-color: grey !important
+}
+
+.tempGrey div:hover{
+  padding:0px;
 }
 
 /*  display: grid;
