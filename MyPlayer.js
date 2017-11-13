@@ -47,7 +47,7 @@ var MyPlayer = function(name){
 
 //if you have to pass at the beginning of the game
     if (e.getPassType() != Hearts.PASS_NONE) {    
-
+      console.log(current_game.getStatus());
 
       alert('choose 3 cards to pass.  Click on the card to chose it.');
 //add the clicked cards to the array
@@ -165,8 +165,9 @@ var MyPlayer = function(name){
 
 
 //Logic to tell if myplayer is starting the trick
-    if(e.getStartPos() == position){
+    if(e.getStartPos() == position && current_game.getStatus() == 2){
       alert('your starting the game, its your turn!');
+
 
 //Loop which labels cards as playable or not
     //TO DO:  Use CSS instead??
@@ -186,7 +187,7 @@ var MyPlayer = function(name){
 //Event listeners for all 13 cards.  Listen for click, then play the card.
         $( document.getElementById('southCard1') ).click(function() {
           var chosenCard = unplayedCards[0];     //asign the clicked card to a temp variable
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);   //play the card
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; // get first DOM element of class 'middleCard'...grabs the current div that I want to fill
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();       //puts in the text
@@ -194,7 +195,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -202,7 +203,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard3') ).click(function() {
           var chosenCard = unplayedCards[2];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -210,7 +211,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard4') ).click(function() {
           var chosenCard = unplayedCards[3];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -218,7 +219,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard5') ).click(function() {
           var chosenCard = unplayedCards[4];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -226,7 +227,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard6') ).click(function() {
           var chosenCard = unplayedCards[5];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -234,7 +235,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard7') ).click(function() {
           var chosenCard = unplayedCards[6];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -242,7 +243,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard8') ).click(function() {
           var chosenCard = unplayedCards[7];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -250,7 +251,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard9') ).click(function() {
           var chosenCard = unplayedCards[8];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -258,7 +259,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard10') ).click(function() {
            var chosenCard = unplayedCards[9];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -266,7 +267,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard11') ).click(function() {
           var chosenCard = unplayedCards[10];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -274,7 +275,7 @@ var MyPlayer = function(name){
         });      
         $( document.getElementById('southCard12') ).click(function() {
           var chosenCard = unplayedCards[11];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -282,7 +283,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard13') ).click(function() {
           var chosenCard = unplayedCards[12];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString(); 
@@ -347,9 +348,11 @@ var MyPlayer = function(name){
   current_game.registerEventHandler(Hearts.TRICK_CONTINUE_EVENT, function (e) {
 
 //if it's south's turn
-      if (e.getNextPos() == position) {
+      if (e.getNextPos() == position && current_game.getStatus() == 2) {
 
         alert('It is now your turn.');
+        console.log(current_game.getStatus());
+
 
 
 //create a var which is the current hand of unplayed cards
@@ -382,7 +385,7 @@ var MyPlayer = function(name){
 //Event listeners for all 13 cards.  Listen for click, then play the card.
         $( document.getElementById('southCard1') ).click(function() {
           var chosenCard = unplayedCards[0];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2];
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -390,7 +393,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard2') ).click(function() {
           var chosenCard = unplayedCards[1];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -398,7 +401,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard3') ).click(function() {
           var chosenCard = unplayedCards[2];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -406,7 +409,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard4') ).click(function() {
           var chosenCard = unplayedCards[3];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -414,7 +417,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard5') ).click(function() {
           var chosenCard = unplayedCards[4];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -422,7 +425,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard6') ).click(function() {
           var chosenCard = unplayedCards[5];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
            current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -430,7 +433,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard7') ).click(function() {
           var chosenCard = unplayedCards[6];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -438,7 +441,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard8') ).click(function() {
           var chosenCard = unplayedCards[7];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -446,7 +449,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard9') ).click(function() {
           var chosenCard = unplayedCards[8];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -454,7 +457,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard10') ).click(function() {
           var chosenCard = unplayedCards[9];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -462,7 +465,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard11') ).click(function() {
           var chosenCard = unplayedCards[10];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -470,7 +473,7 @@ var MyPlayer = function(name){
         });      
         $( document.getElementById('southCard12') ).click(function() {
           var chosenCard = unplayedCards[11];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();
@@ -478,7 +481,7 @@ var MyPlayer = function(name){
         });
         $( document.getElementById('southCard13') ).click(function() {
           var chosenCard = unplayedCards[12];
-          if(playableCards.includes(chosenCard)){
+          if(playableCards.includes(chosenCard) && current_game.getStatus() == 2){
             current_game.playCard(chosenCard, player_key);
             var thisCardDiv = document.getElementsByClassName('middleCard')[2]; 
             thisCardDiv.innerHTML = 'SOUTH PLAYED:' + '<br>' + chosenCard.toString();       
@@ -583,20 +586,20 @@ var MyPlayer = function(name){
 
     // console.log( e.getScoreboard() );
 
-    console.log(current_game.getScore(Hearts.NORTH));
-    console.log(current_game.getScore(Hearts.WEST));
-    console.log(current_game.getScore(Hearts.SOUTH));
-    console.log(current_game.getScore(Hearts.EAST));
+    // console.log(current_game.getScore(Hearts.NORTH));
+    // console.log(current_game.getScore(Hearts.WEST));
+    // console.log(current_game.getScore(Hearts.SOUTH));
+    // console.log(current_game.getScore(Hearts.EAST));
 
     totalNorthPoints += current_game.getScore(Hearts.NORTH);
     totalWestPoints += current_game.getScore(Hearts.WEST);
     totalSouthPoints += current_game.getScore(Hearts.SOUTH);
     totalEastPoints += current_game.getScore(Hearts.EAST);
 
-    console.log(totalNorthPoints);
-    console.log(totalWestPoints);
-    console.log(totalSouthPoints);
-    console.log(totalEastPoints);
+    // console.log(totalNorthPoints);
+    // console.log(totalWestPoints);
+    // console.log(totalSouthPoints);
+    // console.log(totalEastPoints);
 
 //sets the scoreboard values
     var scoreBoardDiv = document.getElementsByClassName('northScore')[0]; 
