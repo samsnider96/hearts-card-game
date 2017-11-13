@@ -13,9 +13,5 @@
       var match = new HeartsMatch(north, east, south, west);
 
       match.run();
-
-      // south.printEverythingLoop();
-
-
-
+      
     });

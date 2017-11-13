@@ -1,31 +1,6 @@
-//Bugs found;
-    //bad one - scoreboard is working but not adding up points from the game
-
-    //potentially bad one - need to check if this stuff will be graded on- 
-          //sometimes prints to middle box even when card isn't accepted, in later rounds
-          //bad one - clicking on the dashes 
-          //Possibly one - if you click 2 options quickly on your turn, they both populate the textbox
-
-
+//Bugs:
 
 //To Do:
-
-
-//MESSAGING - read instructions carefully to see if you have all text alerts in there.  Also make sure "alert() works for that."
-
-
-//check for bugs based on the rules of the game, etc
-
-//check that the cards are rendering correctly and carrying over through tricks correctly
-
-//Optional:
-  //make it more clear how to click / select the cards
-  //Clean up and consolidate
-      //lots of helper functions
-      //consolidate those 2 almost identicle huge blocks
-  //hover CSS
-  //playable CSS
-  //add favicon
 
 
 var MyPlayer = function(name){
@@ -34,6 +9,12 @@ var MyPlayer = function(name){
   var position = null;
   var current_game = null;
   var player_key = null;
+
+  var totalNorthPoints = 0
+  var totalWestPoints = 0
+  var totalSouthPoints = 0
+  var totalEastPoints = 0
+
 
 
   this.setupMatch = function (hearts_match, pos) {
@@ -602,21 +583,30 @@ var MyPlayer = function(name){
 
     // console.log( e.getScoreboard() );
 
-    console.log(current_game.getScore(Hearts.NORTH))
-    console.log(current_game.getScore(Hearts.WEST))
-    console.log(current_game.getScore(Hearts.SOUTH))
-    console.log(current_game.getScore(Hearts.EAST))
+    console.log(current_game.getScore(Hearts.NORTH));
+    console.log(current_game.getScore(Hearts.WEST));
+    console.log(current_game.getScore(Hearts.SOUTH));
+    console.log(current_game.getScore(Hearts.EAST));
 
+    totalNorthPoints += current_game.getScore(Hearts.NORTH);
+    totalWestPoints += current_game.getScore(Hearts.WEST);
+    totalSouthPoints += current_game.getScore(Hearts.SOUTH);
+    totalEastPoints += current_game.getScore(Hearts.EAST);
+
+    console.log(totalNorthPoints);
+    console.log(totalWestPoints);
+    console.log(totalSouthPoints);
+    console.log(totalEastPoints);
 
 //sets the scoreboard values
     var scoreBoardDiv = document.getElementsByClassName('northScore')[0]; 
-    scoreBoardDiv.innerHTML = 'North: ' + current_game.getScore(Hearts.NORTH) + ' points.';
+    scoreBoardDiv.innerHTML = 'North: ' + totalNorthPoints + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('westScore')[0]; 
-    scoreBoardDiv.innerHTML = 'West:: ' + current_game.getScore(Hearts.WEST) + ' points.';
+    scoreBoardDiv.innerHTML = 'West:: ' + totalWestPoints + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('southScore')[0]; 
-    scoreBoardDiv.innerHTML = 'South: ' + current_game.getScore(Hearts.SOUTH) + ' points.';
+    scoreBoardDiv.innerHTML = 'South: ' + totalSouthPoints + ' points.';
     var scoreBoardDiv = document.getElementsByClassName('eastScore')[0]; 
-    scoreBoardDiv.innerHTML = 'East: ' + current_game.getScore(Hearts.EAST) + ' points.'; 
+    scoreBoardDiv.innerHTML = 'East: ' + totalEastPoints + ' points.'; 
 
   });
 
@@ -667,12 +657,6 @@ var MyPlayer = function(name){
       thisCardDiv.innerHTML = "<span class='tempGrey'>////////////////////<br>////////////////////<br>//////(already<br>played)//////////<br>////////////////////<br></span>" 
     }
   }
-
-
-
-
-
-
 
 
 
